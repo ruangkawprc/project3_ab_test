@@ -22,11 +22,18 @@
         setCookie("ab_test_group", group, 30); // Cookie lasts for 30 days
       }
 
-      if (group === 'A') {
-        window.location.href = "https://ruangkawprc.shinyapps.io/app1/";
-      } else {
-        window.location.href = "https://ruangkawprc.shinyapps.io/app2/";
-      }
+      // Debugging output
+      console.log("Assigned group:", group);
+      console.log("Current cookies:", document.cookie);
+
+      // Delay redirect slightly to ensure cookie is saved
+      setTimeout(() => {
+        if (group === 'A') {
+          window.location.href = "https://ruangkawprc.shinyapps.io/app1/";
+        } else {
+          window.location.href = "https://ruangkawprc.shinyapps.io/app2/";
+        }
+      }, 100); // Delay in milliseconds
     };
   </script>
 </head>
